@@ -1,5 +1,6 @@
 package br.com.curso.jaxb;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.text.AbstractDocument.Content;
@@ -7,6 +8,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.SchemaOutputResolver;
 import javax.xml.transform.Result;
+import javax.xml.transform.stream.StreamResult;
 
 public class TesteGeraSchema {
 
@@ -17,8 +19,8 @@ public class TesteGeraSchema {
 			@Override
 			public Result createOutput(String namespaceUri, String suggestedFileName)
 					throws IOException {
-				
-				return null;
+				StreamResult result = new StreamResult(new File("teste.xsd"));
+				return result;
 			}
 		});
 	}
